@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="tooltip_container">
+    <view wx:for="{{messages}}" wx:key="id" wx:for-item="message" class="tooltip {{message.level + '_tooltip'}} {{message.exiting ? 'tooltip_exit' : 'tooltip_enter'}}" bindanimationend="onMessageExitDone" data-message="{{message}}">
+        <text>{{message.content}}</text>
+    </view>
+</view>

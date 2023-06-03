@@ -1,0 +1,77 @@
+/* index.wxss */
+
+@primaryTextColor: #272727;
+@textSize: 28rpx;
+
+@infoColor: #CCFFCC;
+@warningColor: #f8e58c;
+@errorColor: #d9333f;
+
+.tooltip_container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 5vw;
+    left: 0;
+    z-index: 100;
+
+    @tooltipWidth: 80vw;
+
+    .tooltip {
+        width: @tooltipWidth;
+        border-radius: 10vw;
+        padding: 1.7vw 4vw;
+        font-size: @textSize;
+        margin-bottom: 2vw;
+    }
+
+    .tooltip_enter {
+        animation-name: tooltipMessageFadeIn;
+        animation-duration: 400ms;
+    }
+
+    @keyframes tooltipMessageFadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .info_tooltip {
+        color: @primaryTextColor;
+        background-color: @infoColor;
+    }
+
+    .warning_tooltip {
+        color: @primaryTextColor;
+        background-color: @warningColor;
+    }
+
+    .error_tooltip {
+        color: white;
+        background-color: @errorColor;
+    }
+
+    .tooltip_exit {
+        animation-name: tooltipMessageSlideOut;
+        animation-duration: 400ms;
+        animation-fill-mode: both;
+    }
+
+    @keyframes tooltipMessageSlideOut {
+        from {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        to {
+            opacity: 0;
+            transform: translate(0, -100%);
+        }
+    }
+}

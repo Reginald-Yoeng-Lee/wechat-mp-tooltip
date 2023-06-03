@@ -1,0 +1,23 @@
+{
+  "name": "wechat-mp-tooltip",
+  "version": "1.0.0",
+  "description": "微信小程序页面中使用的消息提示框",
+  "main": "mp/index.js",
+  "miniprogram": "mp",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wechat",
+    "mini_program",
+    "tooltip"
+  ],
+  "types": "types/mp/index.d.ts",
+  "author": "Reginald Lee",
+  "license": "MIT",
+  "devDependencies": {
+    "less": "^4.1.3",
+    "miniprogram-api-typings": "^3.9.1",
+    "typescript": "^5.1.3"
+  }
+}
