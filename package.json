@@ -1,6 +1,6 @@
 {
   "name": "wechat-mp-tooltip",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "微信小程序页面中使用的消息提示框",
   "main": "mp/index.js",
   "miniprogram": "mp",

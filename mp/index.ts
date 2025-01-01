@@ -10,7 +10,9 @@ type DataOption = {
     messages: Message[];
 };
 
-type PropertyOption = {};
+type PropertyOption = {
+    verticalOffset: WechatMiniprogram.Component.FullProperty<StringConstructor>;
+};
 
 type MethodOption = {
     show(level: TooltipLevel, message: string, duration: number): void;
@@ -42,7 +44,12 @@ class Message {
 }
 
 Component<DataOption, PropertyOption, MethodOption>({
-    properties: {},
+    properties: {
+        verticalOffset: {
+            type: String,
+            value: '5vw',
+        },
+    },
     data: {
         messages: [],
     },

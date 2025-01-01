@@ -35,7 +35,7 @@ _app.json_
 _page.wxml_
 
 ```xml
-<tooltip id="tooltip" />    <!-- 如果采用默认配置(见下文), 此处的 id="tooltip" 不可省略 -->
+<tooltip id="tooltip"/>    <!-- 如果采用默认配置(见下文), 此处的 id="tooltip" 不可省略 -->
 ```
 
 > 目前受限于微信未提供使用代码动态向页面添加组件的方式, 只能于各页面分别定义一个tooltip标签. 若之后有更好的实现方法将立刻改进.
@@ -53,8 +53,22 @@ Tooltip.info('简易消息示例');
 ```javascript
 Tooltip.info('丰富消息示例', 2000, {
     componentId: 'custom-tooltip-id',
-    componentFetcher: () => { /* Fetch the tooltip component */ }
+    componentFetcher: () => { /* Fetch the tooltip component */
+    }
 });
+```
+
+## 组件属性
+
+| 属性名             | 类型     | 必选       | 功能                         | 备注                     |
+|-----------------|--------|----------|----------------------------|------------------------|
+| id              | string | 是        | 用于查找tooltip组件, 以显示消息       | 建议以`tooltip`为值, 减少模板代码 |
+| vertical-offset | string | 否, 默认5vw | 消息显示时垂直方向的偏移距离 (即离屏幕顶部的距离) | 必须包含合法的wxss尺寸单位, 否则无效  |
+
+示例:
+
+```xml
+<tooltip id="tooltip" vertical-offset="5vw"/>
 ```
 
 ## API详述
@@ -75,12 +89,12 @@ Tooltip.info('丰富消息示例', 2000, {
 
 `message: string`: 待显示的消息内容  
 `duration: number`: 消息显示的时间, 默认为5000ms (5S)  
-`opts: TooltipOptions`: 消息配置项, 默认使用`Tooltip.defaultOptions`  
+`opts: TooltipOptions`: 消息配置项, 默认使用`Tooltip.defaultOptions`
 
 ### TooltipOptions
 
 `componentId: string`: 默认情况下(无自定义componentFetcher), 将在当前显示的页面上通过id查找tooltip组件, 默认值为`tooltip`, 因此wxml中需为组件添加`id="tooltip"`. 如果与现有组件id冲突, 可自行设定此值  
-`componentFetcher: () => TooltipComponent | null`: 获取tooltip组件的方法, 默认在当前显示的页面上通过id查找tooltip组件. 如果返回`null`, 消息将不被显示  
+`componentFetcher: () => TooltipComponent | null`: 获取tooltip组件的方法, 默认在当前显示的页面上通过id查找tooltip组件. 如果返回`null`, 消息将不被显示
 
 ### TooltipComponent
 
